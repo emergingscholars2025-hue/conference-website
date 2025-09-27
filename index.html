@@ -87,6 +87,11 @@ section {
 /* Modal content container */
 .modal-content {
   background-color: #ffffff;
+  /* Override the global section display rule so that sections inside
+     modals are visible. Without setting display:block here, the
+     inherited section style (display:none) will hide the modal's
+     content. */
+  display: block;
   margin: 5% auto;
   padding: 20px;
   border-radius: 8px;
