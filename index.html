@@ -68,6 +68,47 @@ footer {
   padding: 1rem;
   font-size: 0.875rem;
 }
+/* Hide the original sections on the page (content will be shown in modals) */
+section {
+  display: none;
+}
+/* Modal overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* Modal content container */
+.modal-content {
+  background-color: #ffffff;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+/* Close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 /* Larger text on wider screens */
 @media (min-width: 600px) {
   header h1 { font-size: 3rem; }
@@ -83,19 +124,21 @@ footer {
   <p><strong>[Dates]</strong> · [City/Country]</p>
 </header>
 <nav>
-  <a href="#keydates">Key Dates</a>
-  <a href="#about">About</a>
-  <a href="#cfp">Call for Papers</a>
-  <a href="#programme">Programme</a>
-  <a href="#keynotes">Keynotes</a>
-  <a href="#registration">Registration</a>
-  <a href="#venue">Venue</a>
-  <a href="#accessibility">Accessibility &amp; Conduct</a>
-  <a href="#contact">Contact</a>
+  <a href="#" onclick="openModal('modal-keydates'); return false;">Key Dates</a>
+  <a href="#" onclick="openModal('modal-about'); return false;">About</a>
+  <a href="#" onclick="openModal('modal-cfp'); return false;">Call for Papers</a>
+  <a href="#" onclick="openModal('modal-programme'); return false;">Programme</a>
+  <a href="#" onclick="openModal('modal-keynotes'); return false;">Keynotes</a>
+  <a href="#" onclick="openModal('modal-registration'); return false;">Registration</a>
+  <a href="#" onclick="openModal('modal-venue'); return false;">Venue</a>
+  <a href="#" onclick="openModal('modal-accessibility'); return false;">Accessibility &amp; Conduct</a>
+  <a href="#" onclick="openModal('modal-contact'); return false;">Contact</a>
 </nav>
 <main id="main">
-<section id="keydates" class="keydates">
-  <h2>Key Dates</h2>
+<div id="modal-keydates" class="modal">
+  <section id="keydates" class="modal-content keydates">
+    <span class="close" onclick="closeModal('modal-keydates')">&times;</span>
+    <h2>Key Dates</h2>
   <ul>
     <li><strong>CFP Opens:</strong> [Opening Date]</li>
     <li><strong>CFP Deadline:</strong> [Deadline Date]</li>
@@ -103,10 +146,13 @@ footer {
     <li><strong>Early Registration Closes:</strong> [Early Reg Date]</li>
     <li><strong>Conference Dates:</strong> [Conference Dates]</li>
   </ul>
-</section>
+    </section>
+</div>
 
-<section id="about">
-  <h2>About the Conference</h2>
+<div id="modal-about" class="modal">
+  <section id="about" class="modal-content">
+    <span class="close" onclick="closeModal('modal-about')">&times;</span>
+    <h2>About the Conference</h2>
   <p>Breaking Frames: Research Without Borders is a doctoral workshop in American &amp; Cultural Studies designed for those who are tired of rigid frameworks that restrict what counts as “research.” We bring together PhD students and early-career researchers who want to experiment, cross boundaries, and be heard in a supportive environment.</p>
   <p>At the heart of this event is a simple conviction: research is also process, risk, and conversation. Projects may sit within American Studies, Cultural Studies, English Literature—or move beyond any category. We value both critical clarity and formal experimentation, and we recognize that the personal stakes of research are integral to its intellectual force.</p>
   <h3>What you’ll find</h3>
@@ -137,10 +183,13 @@ footer {
   <h3>Submission</h3>
   <p>We welcome proposals that cross boundaries of form, method, and discipline, and that highlight the personal and political stakes of research. Please submit an abstract (~250 words) and a short bio (up to 100 words) to <a href="mailto:emergingscholars2025@gmail.com">emergingscholars2025@gmail.com</a>.</p>
   <p><strong>Notification of acceptance:</strong> June 15, 2025.</p>
-</section>
+    </section>
+</div>
 
-<section id="cfp">
-  <h2>Call for Papers</h2>
+<div id="modal-cfp" class="modal">
+  <section id="cfp" class="modal-content">
+    <span class="close" onclick="closeModal('modal-cfp')">&times;</span>
+    <h2>Call for Papers</h2>
   <h3>Doctoral Student Workshop in American &amp; Cultural Studies</h3>
   <h3>BREAKING FRAMES: RESEARCH WITHOUT BORDERS</h3>
   <p>We are tired of rigid academic frameworks that limit what counts as “research.” We believe PhD students and early-career researchers should have a space to speak freely, experiment, and be heard. This is YOUR CALL: an invitation to share the ideas, projects, doubts, and provocations that matter most to YOU. Whether your work sits within American Studies, Cultural Studies, English Literature—or wanders outside all categories—you are WELCOME here.</p>
@@ -175,26 +224,38 @@ footer {
     <li><strong>Send to:</strong> <a href="mailto:emergingscholars2025@gmail.com">emergingscholars2025@gmail.com</a></li>
   </ul>
   <p><strong>Notifications of acceptance:</strong> June 15, 2025</p>
-</section>
+    </section>
+</div>
 
-<section id="programme">
-  <h2>Programme &amp; Format</h2>
+<div id="modal-programme" class="modal">
+  <section id="programme" class="modal-content">
+    <span class="close" onclick="closeModal('modal-programme')">&times;</span>
+    <h2>Programme &amp; Format</h2>
   <p>The conference spans [1–2] days and combines keynote lectures, thematic panels, lightning talks, roundtables, workshops, mentoring circles and a poster/zine session. A provisional schedule will be published after the CFP closes.</p>
-</section>
+    </section>
+</div>
 
-<section id="keynotes">
-  <h2>Keynote Speakers</h2>
+<div id="modal-keynotes" class="modal">
+  <section id="keynotes" class="modal-content">
+    <span class="close" onclick="closeModal('modal-keynotes')">&times;</span>
+    <h2>Keynote Speakers</h2>
   <p>Stay tuned for announcements of our keynote speakers. We aim to feature scholars whose work bridges American Studies and Cultural Studies and offers insight into methodological and career development for emerging researchers.</p>
-</section>
+    </section>
+</div>
 
-<section id="registration">
-  <h2>Registration</h2>
+<div id="modal-registration" class="modal">
+  <section id="registration" class="modal-content">
+    <span class="close" onclick="closeModal('modal-registration')">&times;</span>
+    <h2>Registration</h2>
   <p>Registration will open on <strong>[Registration Opening Date]</strong>. We offer reduced fees for students and unwaged participants. Limited travel bursaries are available for presenters without institutional funding. All attendees must register in advance.</p>
   <p><a href="[Registration Link]">Register for the conference</a></p>
-</section>
+    </section>
+</div>
 
-<section id="venue">
-  <h2>Venue &amp; Travel</h2>
+<div id="modal-venue" class="modal">
+  <section id="venue" class="modal-content">
+    <span class="close" onclick="closeModal('modal-venue')">&times;</span>
+    <h2>Venue &amp; Travel</h2>
   <p><strong>Faculty of Arts (Facultad de Letras), University of the Basque Country (UPV/EHU)</strong><br>
   Paseo de la Universidad, 5, 01006 Vitoria‑Gasteiz, Spain.</p>
 
@@ -253,20 +314,53 @@ footer {
     <li><strong>Florida Park &amp; Virgen Blanca Square</strong> – classic city stroll linking the park with the old town. <a href="https://maps.google.com/?q=Parque%20de%20La%20Florida%20Vitoria" target="_blank" rel="noopener">Map</a>, <a href="https://maps.google.com/?q=Plaza%20de%20la%20Virgen%20Blanca%20Vitoria" target="_blank" rel="noopener">Map</a></li>
     <li><strong>Salburua Wetlands &amp; Ataria Visitor Centre</strong> – part of Vitoria’s “Green Ring.” <a href="https://maps.google.com/?q=Ataria%20Centro%20de%20Interpretaci%C3%B3n%20Salburua" target="_blank" rel="noopener">Map</a></li>
   </ul>
-</section>
+    </section>
+</div>
 
-<section id="accessibility">
-  <h2>Accessibility &amp; Code of Conduct</h2>
+<div id="modal-accessibility" class="modal">
+  <section id="accessibility" class="modal-content">
+    <span class="close" onclick="closeModal('modal-accessibility')">&times;</span>
+    <h2>Accessibility &amp; Code of Conduct</h2>
   <p>We are committed to providing an inclusive and accessible event. Please let us know your access requirements when you register. Our code of conduct ensures a respectful environment free from harassment. View the full <a href="[Code of Conduct URL]">code of conduct</a>.</p>
-</section>
+    </section>
+</div>
 
-<section id="contact">
-  <h2>Contact</h2>
+<div id="modal-contact" class="modal">
+  <section id="contact" class="modal-content">
+    <span class="close" onclick="closeModal('modal-contact')">&times;</span>
+    <h2>Contact</h2>
   <p>If you have questions about the conference, please email us at <a href="mailto:[contact@example.com]">[contact@example.com]</a>. For updates, follow us on <a href="[Social Media Link]">social media</a> and use the hashtag <strong>[#ConferenceHashtag]</strong>.</p>
-</section>
+    </section>
+</div>
 </main>
 <footer>
   <p>© [Year] [Conference Short Name]. All rights reserved.</p>
 </footer>
+<script>
+function openModal(id) {
+  var modal = document.getElementById(id);
+  if (modal) {
+    modal.style.display = 'block';
+  }
+}
+
+function closeModal(id) {
+  var modal = document.getElementById(id);
+  if (modal) {
+    modal.style.display = 'none';
+  }
+}
+
+// Close modal when clicking outside the content
+window.addEventListener('click', function(event) {
+  var modals = document.getElementsByClassName('modal');
+  for (var i = 0; i < modals.length; i++) {
+    var modal = modals[i];
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  }
+});
+</script>
 </body>
 </html>
