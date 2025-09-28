@@ -21,9 +21,10 @@ a:hover {
   text-decoration: underline;
 }
 header {
-  background-color: #14213d;
-  color: #ffffff;
-  padding: 2rem 1rem;
+  /* Remove the dark blue background and extra padding from the header so that only the banner is visible */
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
   text-align: center;
 }
 /* Banner image styling */
@@ -133,9 +134,10 @@ section {
 <header>
   <!-- Main banner for the conference loaded from a separate file -->
   <img src="banner.jpg" alt="Conference banner" />
-  <h1>BREAKING FRAMES</h1>
-  <p>Research Without Borders</p>
-  <p><strong>[Dates]</strong> · [City/Country]</p>
+  <!-- Removed the duplicate textual header under the banner by commenting out the heading and tagline -->
+  <!-- <h1>BREAKING FRAMES</h1> -->
+  <!-- <p>Research Without Borders</p> -->
+  <!-- <p><strong>[Dates]</strong> · [City/Country]</p> -->
 </header>
 <nav>
   <a href="#" onclick="openModal('modal-keydates'); return false;">Key Dates</a>
